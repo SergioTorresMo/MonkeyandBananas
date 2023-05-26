@@ -1,0 +1,20 @@
+Declaraciones {
+Hambre(Mono),
+isOn(Silla, Piso),
+isOn(Escritorio, Piso),
+isOn(Banana, Techo),
+isOn(Mono, Piso)
+}
+
+Reglas:
+
+If isOn(M, P) & isOn(S, P)
+Then isOn(S, P) -> isOn(S, E)
+If isOn(M, P) & isOn(E, P)
+Then isOn(M, P) -> isOn(M, E)
+If isOn(M, E) & isOn(S, E)
+Then isOn(M, E) -> isOn(M, S)
+If isOn(M, S) & isOn(S, E)
+Then isOn(M, S) -> Comer(M, B)
+If Comer(M, B)
+Then Hambre(M) -> Feliz(M)
